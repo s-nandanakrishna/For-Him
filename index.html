@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Pranav ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #2b001b, #0b0010);
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* 🔒 Lock Screen */
+.lock {
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,0,120,0.3);
+}
+
+input {
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    width: 220px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+button {
+    margin: 15px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #ff4d88;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#error {
+    color: #ff9bbf;
+    margin-top: 10px;
+    display: none;
+}
+
+/* 💖 Main Content */
+#content {
+    display: none;
+    text-align: center;
+}
+
+#noBtn {
+    background: #555;
+    position: relative;
+}
+
+/* 🌙 Final Message */
+.final-message {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.15em;
+    line-height: 1.9;
+    color: #ffd6e8;
+    background: radial-gradient(circle at top, #2b001b, #0b0010);
+    animation: softFade 4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes softFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔒 PRIVATE LOCK -->
+<div class="lock" id="lock">
+    <h2>🔒 Private</h2>
+    <p>This page is only for one heart.</p>
+    <input type="password" id="pass" placeholder="Enter secret word">
+    <br>
+    <button onclick="unlock()">Enter</button>
+    <div id="error">Not for you 🤍</div>
+</div>
+
+<!-- 💖 VALENTINE QUESTION -->
+<div id="content">
+    <h1>Pranav ❤️</h1>
+    <p>Will you be my Valentine?</p>
+
+    <button onclick="finalMessage()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">No 🤍</button>
+</div>
+
+<script>
+/* 🔑 CHANGE PASSWORD IF YOU WANT */
+const SECRET = "pranav";
+
+function unlock() {
+    const input = document.getElementById("pass").value;
+    if (input === SECRET) {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+
+/* 😜 RUNAWAY NO BUTTON */
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+}
+
+/* 🌙 FINAL EMOTIONAL MESSAGE */
+function finalMessage() {
+    document.body.innerHTML = `
+    <div class="final-message">
+        <p>
+        Pranav,<br><br>
+
+        You are my everything.<br>
+        You are the only one I need in my life.<br><br>
+
+        I love you as hell,<br>
+        in the deepest way I know,<br>
+        even in the weird, imperfect, emotional way that is just me.<br><br>
+
+        Thank you for staying with me,<br>
+        even when I’m a rollercoaster of emotions.<br><br>
+
+        I need to be honest with you.<br><br>
+
+        I felt hurt for leaving you sometimes,<br>
+        for giving you less attention,<br>
+        for caring too much about others<br>
+        when all I really wanted was you.<br><br>
+
+        I don’t want to share you,<br>
+        not because I’m selfish,<br>
+        but because I love you deeply<br>
+        and I’m still learning how to love without fear.<br><br>
+
+        I love you.<br>
+        I love you <strong>3000</strong>.<br><br>
+
+        And for yesterday,<br>
+        for anything that hurt you,<br>
+        for anything I couldn’t explain properly—<br><br>
+
+        <strong>Sorry..</strong>
+        </p>
+    </div>`;
+}
+</script>
+
+</body>
+</html>
